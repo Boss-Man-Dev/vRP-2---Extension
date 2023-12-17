@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/your-repository.git"
+    "url": "https://github.com/Boss-Man-Dev/vRP-2-Extension.git"
   },
   "engines": {
     "vscode": "^1.84.0"
