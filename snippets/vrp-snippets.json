@@ -1,0 +1,86 @@
+{
+	"vRP loader": {
+		"scope": "lua",
+		"prefix": "loadscript",
+		"body": [
+			"local Tunnel = module('vrp', 'lib/Tunnel')",
+			"local Proxy = module('vrp', 'lib/Proxy')",
+			"",
+			"local vRP = Proxy.getInterface('vRP')",
+			"",
+			"async(function()",
+			"  vRP.loadScript('${1:$WORKSPACE_NAME}', 'server')",
+			"end)"
+		],
+		"description": "Creates code for vRP script load"
+	},
+	"vRP Server": {
+		"scope": "lua",
+		"prefix": "server_template",
+		"body": [
+			"local ${1:className} = class('${1:className}', vRP.Extension)",
+			"",
+			"${1:className}.event = {}",
+			"${1:className}.tunnel = {}",
+			"",
+			"function ${1:className}:__construct()",
+			"  vRP.Extension.__construct(self)",
+			"end",
+			"",
+			"function ${1:className}.event:playerSpawn(user, first_spawn)",
+			"  if first_spawn then",
+			"    vRP.EXT.Base.remote._notify(user.source, 'Server Testing')",
+			"    self.remote._ragdol(user.source)",
+			"  end",
+			"end",
+			"",
+			"vRP:registerExtension(${1:className})"
+		],
+		"description": "Create base Server code"
+	},
+	"vRP Client": {
+		"scope": "lua",
+		"prefix": "client_template",
+		"body": [
+			"--########## VRP Main  ##########--",
+			"-- init vRP server context",
+			"Tunnel = module('vrp', 'lib/Tunnel')",
+			"Proxy = module('vrp', 'lib/Proxy')",
+			"",
+			"local cvRP = module('vrp', 'client/vRP')",
+			"vRP = cvRP()",
+			"",
+			"local pvRP = {}",
+			"-- load script in vRP context",
+			"pvRP.loadScript = module",
+			"Proxy.addInterface('vRP', pvRP)",
+			"",
+			"local ${1:className} = class('${1:className}', vRP.Extension)",
+			"",
+			"function ${1:className}:__construct()",
+			"  vRP.Extension.__construct(self)",
+			"end",
+			"",
+			"function ${1:className}:ragdol()",
+			"  print('Client Testing')",
+			"end",
+			"",
+			"${1:className}.tunnel = {}",
+			"",
+			"${1:className}.tunnel.ragdol  = ${1:className}.ragdol",
+			"",
+			"vRP:registerExtension(${1:className})"
+		],
+		"description": "Create base Client Code"
+	},
+	"Server event": {
+		"scope": "lua",
+		"prefix": "event_template",
+		"body": [
+			"function ${1:className}.event:${2:FunctionName}()",
+			"",
+			"end"
+		],
+		"description": "Create base Client Code"
+	}
+}
