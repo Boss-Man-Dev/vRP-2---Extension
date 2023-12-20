@@ -6,8 +6,8 @@
     "name": "Boss Man"
   },
   "description": "A simple extension for vRP 2 with snippets and intellesense.",
-  "version": "1.0.1",
-  "icon": "./images/icon.png",
+  "version": "1.0.2",
+  "icon": "images/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/Boss-Man-Dev/vRP-2-Extension.git"

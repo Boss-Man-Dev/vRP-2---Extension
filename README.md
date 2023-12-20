@@ -2,8 +2,6 @@
 
 [![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-1.60.0-blue.svg)](https://code.visualstudio.com/)
 
-![Your Extension Logo](./images/icon.png)
-
 > This is the extension for vRP 2, the second major version of vRP. It introduces a streamlined and structured approach using Object-Oriented Programming (OOP) to reduce overhead. vRP 2 is anticipated to be the final major version, and resources from vRP can be updated for vRP 2 using the extension system.
 
 ## Features
